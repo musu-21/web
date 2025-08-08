@@ -619,3 +619,16 @@ body {
   transform: scale(1.1);
   background: #ff94c2;
 }
+
+/* ===== Peningkatan Keterbacaan Halaman About ===== */
+.about-page .center-container h2 {
+  color: #6a053c; /* Warna lebih gelap untuk judul */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.about-page .center-container p,
+.about-page .center-container a {
+  color: #4b022b; /* Warna sangat gelap untuk paragraf dan link */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  font-weight: 600; /* Memberikan ketebalan agar lebih terbaca */
+}
