@@ -1,7 +1,6 @@
+// Anda bisa menempatkan kode ini di dalam file prank.js
+
 function nextSurprise() {
-  const sound = document.getElementById('prankSound');
-  sound.play();
-  setTimeout(() => {
-    window.location.href = "utama.html";
-  }, 2000); // 2 detik delay untuk efek dramatis
+    // Kode untuk mengarahkan pengguna ke halaman utama.html
+    window.location.href = 'utama.html';
 }
