@@ -1,4 +1,14 @@
 <!-- music.html -->
-<audio autoplay loop>
-  <source src="assets/hbd.mpeg" type="audio/mp3">
+<audio id="bg-music" autoplay loop>
+    <source src="assets/hbd.mpeg" type="audio/mp3">
 </audio>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const playMusicOnce = () => {
+      music.play().catch(e => console.log('Autoplay blocked:', e));
+      document.removeEventListener('click', playMusicOnce);
+  };
+
+  document.addEventListener('click', playMusicOnce);
+</script>

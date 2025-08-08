@@ -108,15 +108,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const music = document.getElementById('bg-music');
-
-  // Trigger pemutaran saat user pertama kali klik
-  const playMusicOnce = () => {
-    music.play();
-    document.removeEventListener('click', playMusicOnce); // hanya sekali
-  };
-
-  document.addEventListener('click', playMusicOnce);
-});
 
