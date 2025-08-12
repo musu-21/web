@@ -1,3 +1,35 @@
+// Fungsi utama pembuatan elemen
+function initBackground() {
+  // Bintang
+  const starsContainer = document.querySelector('.stars');
+  if (starsContainer) {
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      starsContainer.appendChild(star);
+    }
+  }
+
+  // Awan
+  const cloudsContainer = document.querySelector('.clouds');
+  if (cloudsContainer) {
+    for (let i = 0; i < 5; i++) {
+      const cloud = document.createElement('div');
+      cloud.className = 'cloud';
+      cloud.style.left = `${Math.random() * 100}%`;
+      cloud.style.top = `${Math.random() * 30}%`;
+      cloud.style.animationDuration = `${15 + Math.random() * 20}s`;
+      cloudsContainer.appendChild(cloud);
+    }
+  }
+}
+
+// Panggil saat halaman dimuat
+document.addEventListener('DOMContentLoaded', initBackground);
+
 // Flip kartu ucapan
 const card = document.querySelector('.card');
 if (card) {

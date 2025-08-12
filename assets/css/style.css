@@ -14,37 +14,82 @@ body {
 }
 
 /* ===== BACKGROUND ANIMASI ===== */
+/* ===== BINTANG ===== */
 .animated-background {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -1; /* Pastikan di belakang konten */
   overflow: hidden;
 }
-.stars {
+
+.stars, .clouds {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: transparent url('img/stars2.png') repeat;
-  animation: starMove 100s linear infinite;
-  opacity: 0.4;
 }
-@keyframes starMove {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 10000px; }
+
+.star {
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
 }
-.clouds::before {
+
+.cloud {
+  background: rgba(255, 182, 193, 0.6); /* Warna pastel */
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+  opacity: 0.8;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ===== AWAN ===== */
+.cloud {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 40px;
+  filter: blur(5px);
+  animation: float 20s linear infinite;
+}
+
+.cloud::before {
   content: '';
   position: absolute;
-  width: 300%;
-  height: 100%;
-  background: url('img/cloud3.png') repeat-x;
-  background-size: cover;
-  animation: moveClouds 200s linear infinite;
-  opacity: 0.2;
+  width: 30px;
+  height: 30px;
+  background: inherit;
+  border-radius: 50%;
+  top: -15px;
+  left: 10px;
 }
-@keyframes moveClouds {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-66.6%); }
+
+.cloud::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: inherit;
+  border-radius: 50%;
+  top: -10px;
+  right: 10px;
+}
+
+@keyframes float {
+  from { transform: translateX(-100px); }
+  to { transform: translateX(calc(100vw + 100px)); }
 }
 
 /* ===== KONTEN UTAMA / TENGAH ===== */
@@ -631,4 +676,34 @@ body {
   color: #4b022b; /* Warna sangat gelap untuk paragraf dan link */
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   font-weight: 600; /* Memberikan ketebalan agar lebih terbaca */
+}
+
+/* ===== BINTANG & AWAN ===== */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+}
+
+.cloud {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  filter: blur(8px);
+  animation: floatCloud 20s linear infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+@keyframes floatCloud {
+  from { transform: translateX(-150px); }
+  to { transform: translateX(calc(100vw + 150px)); }
 }
